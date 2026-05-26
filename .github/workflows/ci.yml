@@ -29,15 +29,17 @@ jobs:
       matrix:
         os:
           - "ubuntu-latest"
+          - "ubuntu-24.04-arm"
           - "macos-latest"
           - "windows-latest"
+          - "windows-11-arm"
 
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@v6"
 
       - name: "Set up Node.js"
-        uses: "actions/setup-node@v4"
+        uses: "actions/setup-node@v6"
         with:
           node-version: 22
 
@@ -45,7 +47,7 @@ jobs:
         run: "npm install && npm install -g @vscode/vsce"
 
       - name: "Set up Python"
-        uses: "actions/setup-python@v5"
+        uses: "actions/setup-python@v6"
         with:
           python-version: "3.13"
 
@@ -59,7 +61,8 @@ jobs:
       - name: "Build Package with vsce"
         run: "vsce package"
 
-      - name: "Run ESLint"
+      - name: "Run Biome (Linux)"
+        if: "${{ startsWith(matrix.os, 'ubuntu-') }}"
         run: "npm run lint"
 
       - name: "Run Mocha Tests (Linux)"
@@ -89,10 +92,10 @@ jobs:
 
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@v6"
 
       - name: "Set up Python"
-        uses: "actions/setup-python@v5"
+        uses: "actions/setup-python@v6"
         with:
           python-version: "3.13"
 
@@ -117,10 +120,10 @@ jobs:
 
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@v6"
 
       - name: "Set up Node.js"
-        uses: "actions/setup-node@v4"
+        uses: "actions/setup-node@v6"
         with:
           node-version: 22
 
@@ -128,7 +131,7 @@ jobs:
         run: "npm install && npm install -g @vscode/vsce ovsx"
 
       - name: "Set up Python"
-        uses: "actions/setup-python@v5"
+        uses: "actions/setup-python@v6"
         with:
           python-version: "3.13"
 
