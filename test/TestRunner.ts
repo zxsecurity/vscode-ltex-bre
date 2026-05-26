@@ -87,7 +87,7 @@ async function runTestIteration(useOfflinePackage: boolean): Promise<void> {
 				"--install-extension",
 				Path.join(
 					ltexDirPath,
-					`vscode-ltex-bre-${ltexVersion}-offline-${platform}-${architecture}.vsix`,
+					`vscode-ltex-bre-offline-${platform}-${architecture}.vsix`,
 				),
 			);
 		}
