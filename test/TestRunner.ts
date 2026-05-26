@@ -87,7 +87,7 @@ async function runTestIteration(useOfflinePackage: boolean): Promise<void> {
 				"--install-extension",
 				Path.join(
 					ltexDirPath,
-					`vscode-ltex-plus-${ltexVersion}-offline-${platform}-${architecture}.vsix`,
+					`vscode-ltex-bre-${ltexVersion}-offline-${platform}-${architecture}.vsix`,
 				),
 			);
 		}
@@ -116,7 +116,7 @@ async function runTestIteration(useOfflinePackage: boolean): Promise<void> {
 			Rimraf.sync(ltexLibDirPath);
 			const ltexOfflineLibDirPath: string = Path.join(
 				extensionsDirPath,
-				`ltex-plus.vscode-ltex-plus-${ltexVersion}`,
+				`ltex-plus.vscode-ltex-bre-${ltexVersion}`,
 				"lib",
 			);
 			console.log(

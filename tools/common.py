@@ -44,7 +44,7 @@ toBeDownloadedLtexLsTag, toBeDownloadedLtexLsVersion = getToBeDownloadedVersions
 
 
 
-organization, repository = "ltex-plus", "vscode-ltex-plus"
+organization, repository = "ltex-plus", "vscode-ltex-bre"
 
 
 
